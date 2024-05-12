@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/style.css') }}">
+    <title>Garment Workers Productivity Predictor</title>
+</head>
+<body>
+    
+    <div class="background">
+        <div class="wrapper">
+            <div class="title">Garment Workers Productivity Predictor</div>
+            <form action="/" method="POST">
+                <div class="form">
+                    <div class="inputfield">
+                        <label for="targeted_productivity">Targeted Productivity</label>
+                        <input class="input" type="flaot" name="targeted_productivity" required>
+                    </div>
+                    <div class="inputfield">
+                        <label for="svm">Standard Minute Value</label>
+                        <input class="input" type="flaot" name="svm" required>
+                    </div>
+                    <div class="inputfield">
+                        <label for="wip">Work in Progress</label>
+                        <input class="input" type="flaot" name="wip" required>
+                    </div>
+                    <div class="inputfield">
+                        <label for="over_time">Over Time</label>
+                        <input class="input" type="flaot" name="over_time" required>
+                    </div>
+                    <div class="inputfield">
+                        <label for="incentive">Incentive</label>
+                        <input class="input" type="flaot" name="incentive" required>
+                    </div>
+                    <div class="inputfield">
+                        <label for="idle_time">Idle Time</label>
+                        <input class="input" type="flaot" name="idle_time" required>
+                    </div>
+                    <div class="inputfield">
+                        <label for="idle_men">Idle Men</label>
+                        <input class="input" type="number" name="idle_men" required>
+                    </div>
+                    <div class="inputfield">
+                        <label for="no_of_workers">Number of Workers</label>
+                        <input class="input" type="number" name="no_of_workers" required>
+                    </div>
+                    <div class="inputfield">
+                        <label for="department">Department</label>
+                        <div class = "custom_select">
+                            <select name="department" id="department">
+                                <option value="" selected hidden>Select</option>
+                                <option value="1">Sewing</option>
+                                <option value="0">Finishing</option>
+                            </select> 
+                        </div>
+                    </div>
+                    <div class="inputfield">
+                        <label for="day">Day</label>
+                        <div class = "custom_select">
+                            <select name="day" id="day">
+                                <option value="" selected hidden>Select</option>
+                                <option value="0">Monday</option>
+                                <option value="1">Tuesday</option>
+                                <option value="2">Wednesday</option>
+                                <option value="3">Thursday</option>
+                                <option value="4">Saturday</option>
+                                <option value="5">Sunday</option>
+                            </select>
+                        </div>
+                    </div> 
+                    
+                    <div class="inputfield">
+                        <label for="quarter">Quarter</label>
+                        <div class = "custom_select">
+                            <select name="quarter" id="quarter">
+                                <option value="" selected hidden>Select</option>
+                                <option value="1">Quarter 1</option>
+                                <option value="2">Quarter 2</option>
+                                <option value="3">Quarter 3</option>
+                                <option value="4">Quarter 4</option>
+                            </select>
+                        </div>
+                    </div>               
+                    <div class="inputfield">
+                        <input class="btn" type="submit" value="Predict productivity" name="act" id='submit' disabled disabled1 disabled2>
+                    </div>
+                </div>
+            </form>
+
+            <div class="result">
+                {% if pred_value != 0 %}
+                <p>Estimated Productivity : $ {{pred_value}}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const select = document.getElementById('quarter');
+    const submitButton = document.getElementById('submit');
+    document.getElementById('quarter').addEventListener('change', () => {
+    if (select.value =="") {
+        submitButton.disabled = true;
+    } else {
+        submitButton.disabled = false;
+    }
+    });
+
+    const select1 = document.getElementById('smv');
+    document.getElementById('smv').addEventListener('change', () => {
+    if (select1.value =="") {
+        submitButton.disabled1 = true;
+    } else {
+        submitButton.disabled1 = false;
+    }
+    });
+  
+    const select2 = document.getElementById('wip');
+    document.getElementById('wip').addEventListener('change', () => {
+    if (select2.value == "") {
+        submitButton.disabled2 = true;
+    } else {
+        submitButton.disabled2 = false;
+    }
+    });
+</script>
+</html>

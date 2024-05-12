@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    padding: 0 10px;
+    background-image: linear-gradient(rgb(1, 89, 79), rgb(8, 16, 234),rgb(144, 8, 234));
+}
+
+.background{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+    
+}
+
+.wrapper{
+    max-width:500px;
+    width: 100%;
+    background: #fafac2;
+    margin: 20px auto;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.125);
+    padding: 30px;
+}
+.wrapper .title{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    text-align: center;
+    font-family:"Lucida Console", "Courier New", monospace;
+} 
+.wrapper .form{
+    width: 100%;
+} 
+.wrapper .form .inputfield{
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+.wrapper .form .inputfield label{
+    width: 200px;
+    color: black;
+    margin-right: 10px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.check{
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.check label{
+    padding: 0px 10px 0px 0px;
+}
+
+.wrapper .form .inputfield .input{
+    width: 100%;
+    outline: none;
+    border: 1px solid #d5dbd9;
+    font-size: 16px;
+    padding: 8px 10px;
+    border-radius: 3px;
+}
+
+.wrapper .form .inputfield .custom_select{
+    position: relative;
+    width: 100%;
+    height: 37px;
+}
+.wrapper .form .inputfield .custom_select:before{
+    position: absolute;
+    top: 12px;
+    right: 10px;
+}
+
+.wrapper .form .inputfield .custom_select select{
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    padding: 8px 10px;
+    font-size: 16px;
+    border: 1px solid #d5dbd9;
+    border-radius: 3px;
+}
+
+.wrapper .form .inputfield .btn{
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 18px; 
+    border: 0px;
+    background:  rgb(0, 44, 64);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+    font-family:"Lucida Console", "Courier New", monospace;
+}
+.result p{
+    text-align: center;
+    color: rgba(39, 28, 255, 0.883);
+    font-size: 18px;
+    font-weight: bold;
+    font-family:"Lucida Console", "Courier New", monospace;
+}
